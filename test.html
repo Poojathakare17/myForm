@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="myForm" ng-controller="myFormCtrl">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+ 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <form ng-submit="submitForm(user)">
+            <label>Name:</label>
+            <input type="text" ng-model="user.empName" placeholder="Enter a name here"><br><br>
+             <div flex-gt-xs>
+        <h4>Standard date-picker</h4>
+        <md-datepicker ng-model="user.myDate" md-placeholder="Enter date"></md-datepicker>
+      </div>
+            <label>Email:</label>
+            <input type="email" ng-model="user.email" placeholder="Enter a email here"><br><br>
+            <label>Age:</label>
+            <input type="number" ng-model="user.age" placeholder="Enter a age here"><br><br>
+            <label>Tel:</label>
+
+
+            <div ng-repeat="item in items">
+                <input type="tel" ng-model="user.mobile" placeholder="Enter a mobile number here">
+                <input type="button" ng-click="add()" value="Add" /><br><br>
+            </div>
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+
+    <script>
+        angular.module('myForm', [])
+            .controller('myFormCtrl', ['$scope', function($scope) {
+                $scope.user = {};
+                $scope.items = [{}];
+
+                //add div
+                $scope.add = function() {
+                    $scope.items.push({});
+                }
+
+                //submit form
+                $scope.submitForm = function(user) {
+
+                    console.log(user);
+                }
+            }]);
+
+
+    </script>
+
+</body>
+
+</html>

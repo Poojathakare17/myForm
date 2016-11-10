@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="./myFormCss.css">
+</head>
+
+<body ng-app="BlankApp" ng-controller="AppCtrl" ng-cloak>
+    <!--
+    Your HTML content here
+ <div layout-gt-xs="row">
+  -->
+    <form ng-submit="submitForm(user)">
+        <div>
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="user.name">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label>Email</label>
+                <input ng-model="user.email" type="email">
+            </md-input-container>
+        </div>
+        <div>
+            <span ng-repeat="item in user.contacts"><input ng-model="item.number"></span>
+            <md-button class="md-raised" ng-click="add()">Add</md-button>
+        </div>
+        <div flex-gt-xs>
+            <md-datepicker ng-model="user.myDate" md-placeholder="Enter dob"></md-datepicker>
+        </div>
+        {{user}}
+        <md-button class="md-raised" type="submit">Submit</md-button>
+    </form>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="./myFormJs.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+</body>
+
+</html>
